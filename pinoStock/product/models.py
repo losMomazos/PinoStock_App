@@ -2,15 +2,15 @@ from django.db import models
 
 # Create your models here.
 class Gpu(models.Model):
-	modelGPU = models.CharField(max_length=60)
+	name = models.CharField(max_length=60)
 	patentGPU = models.CharField(max_length=50)
-	baseCloack = models.FloatField(null = False)
-	memoryCloack = models.FloatField(null = False)
+	baseCloack = models.FloatField(null = False,default=0.0)
+	memoryCloack = models.FloatField(null = False,default=0.0)
 	busSupport = models.CharField(max_length=30)
 	memoryInterface = models.CharField(max_length=20)
 	maximumDigitalResolution = models.CharField(max_length=30)
-	recomendedSystemPower = models.FloatField(null = False)
-	maximumTemperature = models.FloatField(null = False)
+	recomendedSystemPower = models.FloatField(null = False,default=0.0)
+	maximumTemperature = models.FloatField(null = False,default=0.0)
 	description = models.CharField(max_length=255)
 	category = models.CharField(max_length=50)
 	def __str__(self):
@@ -18,16 +18,16 @@ class Gpu(models.Model):
 
 
 class Cpu(models.Model):
-	modelCPU = models.CharField(max_length=60)
+	name = models.CharField(max_length=60)
 	patentCPU = models.CharField(max_length=50)
-	baseFrequency = models.FloatField(null = False)
-	maxFrequency = models.FloatField(null = False)
-	numberOfCores = models.IntegerField(null = False)
-	numberOfThreads = models.IntegerField(null = False)
+	baseFrequency = models.FloatField(null = False,default=0.0)
+	maxFrequency = models.FloatField(null = False,default=0.0)
+	numberOfCores = models.IntegerField(null = False,default=1)
+	numberOfThreads = models.IntegerField(null = False,default=1)
 	socket = models.CharField(max_length=50)
-	cache = models.IntegerField(min_value = 1, max_value = 1000)
-	maxTemperature = models.FloatField(null = False)
-	TDP = models.FloatField(null = False)
+	cache = models.IntegerField(null=False,default=0)
+	maxTemperature = models.FloatField(null = False,default=0.0)
+	TDP = models.FloatField(null=False,default=0.0)
 	GPURelated = models.ManyToManyField(Gpu)
 	description = models.CharField(max_length=255)
 	category = models.CharField(max_length=50)
@@ -37,14 +37,14 @@ class Cpu(models.Model):
 
 
 class MotherBoard(models.Model):
-	motherBoardName = models.CharField(max_length=60)
+	name = models.CharField(max_length=60)
 	motherPatent = models.CharField(max_length=50)
-	numberOfDIMMS = models.IntegerField(null = False)
-	numberOfDisplaysSupported = models.IntegerField(null = False)
-	maxNumberOfSataPorts = models.IntegerField(null = False)
-	numberOfUSBPorts = models.IntegerField(null = False)
+	numberOfDIMMS = models.IntegerField(null = False,default=0)
+	numberOfDisplaysSupported = models.IntegerField(null = False,default=0)
+	maxNumberOfSataPorts = models.IntegerField(null = False,default=0)
+	numberOfUSBPorts = models.IntegerField(null = False,default=0)
 	USBRevision = models.CharField(max_length=100)
-	busSpeed = models.FloatField(null = False)
+	busSpeed = models.FloatField(null = False,default=0.0)
 	CPURelated = models.ManyToManyField(Cpu)
 	GPURelated = models.ManyToManyField(Gpu)
 	description = models.CharField(max_length=255)
