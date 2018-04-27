@@ -1,3 +1,4 @@
+{% load staticfiles%}
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css" >
-    <link rel="stylesheet" href="css/estilos-mother.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/estilos-mother.css' %}">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--link href="css/bootstrap.min.css" rel="stylesheet"-->
 
     <!-- Custom styles for this template -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <!--link href="css/simple-sidebar.css" rel="stylesheet"-->
     <title>Aguante la Gtx</title>
   </head>
   <body>
@@ -110,7 +111,7 @@
                         <option value="2">Micro-Atx</option>
                         <option value="3">Three</option>
                       </select>
-                    </div>
+                  </div>
               </div>
               <div class="col-xl">
                   <table class="table">
@@ -130,19 +131,14 @@
                           <td>@mdo</td>
                         </tr>
                         <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
+                        <th scope="row">2</th>
+                          {% for mt in motherboard%}
+                            <td>{{mt.name}}</td>
+                          {% endfor %}
                         </tr>
                       </tbody>
-                    </table>
+
+                  </table>
               </div>
               
           </div>  
