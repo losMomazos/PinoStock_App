@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>New article</title>
+</head>
+<body>
+	<h1> Titulo</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" >Agregar</button>
+		<input type="text" name="nombre" value="$row['Cpu']" />
+	</form>
+</body>
+</html>

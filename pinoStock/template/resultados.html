@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resultados</title>
+</head>
+<body>
+	{% csrf_token %}
+	<h1>resultados busqueda</h1>
+	<h3>Cpus encontrados:</h3>
+	{% for cpu in array_cpu %}
+		{{ cpu.name }}
+		<br>
+	{% endfor %}
+	<br>
+
+	<h3>Gpus encontrados:</h3>
+	{% for gpu in array_gpu %}
+		{{ gpu.name }}
+		<br>
+	{% endfor %}
+	<br>
+
+	<h3>MotherBoards encontrados:</h3>
+	{% for mb in array_motherBoard %}
+		{{ mb.name }}
+		<br>
+	{% endfor %}
+</body>
+</html>

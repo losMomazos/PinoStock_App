@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Consultar Datos a la Base de Datos</title>
+</head>
+<body>
+	<h1> Detalles GPUS </h1>
+	{% for g in obj %}
+		<table>
+			<tr>
+				<td> <h3>Modelo:  </h3> </td>
+				<td> <h3>{{ g.name }}</h3></td>
+			</tr>
+			<tr>
+				<td> <h3>Categoria: </h3> </td>
+				<td> <h3>{{ g.category }}</h3> </td>
+			</tr>
+			<tr>
+				<td> <h3>Tamaño: </h3> </td>
+				<td> <h3>{{ g.memoryInterface }}</h3> </td>
+			</tr>
+			<br>
+		</table>
+	{% endfor %}
+</body>
+</html>
