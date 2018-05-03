@@ -10,7 +10,7 @@ def hello_world(request):
 	template = loader.get_template('motherboard.html')
 
 	context = {
-		'motherboard':motherboard
+		'motherboard':motherboard,
 	}
 	return HttpResponse(template.render(context,request))
 	#return render(request,'motherboard.html')
