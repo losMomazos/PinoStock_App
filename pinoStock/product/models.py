@@ -53,17 +53,3 @@ class MotherBoard(models.Model):
 	def __str__(self):
 		return self.name
 
-	motherPatent = models.CharField(max_length=50)
-	numberOfDIMMS = models.IntegerField(null = False,default=0)
-	numberOfDisplaysSupported = models.IntegerField(null = False,default=0)
-	maxNumberOfSataPorts = models.IntegerField(null = False,default=0)
-	numberOfUSBPorts = models.IntegerField(null = False,default=0)
-	USBRevision = models.CharField(max_length=100)
-	busSpeed = models.FloatField(null = False,default=0.0)
-	socket = models.CharField(max_length=255)
-	CPURelated = models.ManyToManyField(Cpu)
-	GPURelated = models.ManyToManyField(Gpu)
-	description = models.CharField(max_length=255)
-	category = models.CharField(max_length=50)
-	def __str__(self):
-		return self.name
