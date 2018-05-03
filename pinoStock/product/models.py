@@ -45,9 +45,6 @@ class MotherBoard(models.Model):
 	numberOfUSBPorts = models.IntegerField(null = False,default=0)
 	USBRevision = models.CharField(max_length=100)
 	busSpeed = models.FloatField(null = False,default=0.0)
-<<<<<<< HEAD
-	#socket = models.CharField(max_length=255)
-=======
 	socketInMB = models.CharField(max_length=80, default="")
 	CPURelated = models.ManyToManyField(Cpu)
 	GPURelated = models.ManyToManyField(Gpu)
@@ -64,7 +61,6 @@ class MotherBoard(models.Model):
 	USBRevision = models.CharField(max_length=100)
 	busSpeed = models.FloatField(null = False,default=0.0)
 	socket = models.CharField(max_length=255)
->>>>>>> 8635eeb8573b2b14de3ef4936e35aa66aebdf017
 	CPURelated = models.ManyToManyField(Cpu)
 	GPURelated = models.ManyToManyField(Gpu)
 	description = models.CharField(max_length=255)
