@@ -24,7 +24,7 @@ class Cpu(models.Model):
 	maxFrequency = models.FloatField(null = False,default=0.0)
 	numberOfCores = models.IntegerField(null = False,default=1)
 	numberOfThreads = models.IntegerField(null = False,default=1)
-	#socketRelated = models.CharField(max_length=50)
+	socketForCPU = models.CharField(max_length=50, default="")
 	cache = models.IntegerField(null=False,default=0)
 	maxTemperature = models.FloatField(null = False,default=0.0)
 	TDP = models.FloatField(null=False,default=0.0)
@@ -45,7 +45,26 @@ class MotherBoard(models.Model):
 	numberOfUSBPorts = models.IntegerField(null = False,default=0)
 	USBRevision = models.CharField(max_length=100)
 	busSpeed = models.FloatField(null = False,default=0.0)
+<<<<<<< HEAD
 	#socket = models.CharField(max_length=255)
+=======
+	socketInMB = models.CharField(max_length=80, default="")
+	CPURelated = models.ManyToManyField(Cpu)
+	GPURelated = models.ManyToManyField(Gpu)
+	description = models.CharField(max_length=255)
+	category = models.CharField(max_length=50)
+	def __str__(self):
+		return self.name
+
+	motherPatent = models.CharField(max_length=50)
+	numberOfDIMMS = models.IntegerField(null = False,default=0)
+	numberOfDisplaysSupported = models.IntegerField(null = False,default=0)
+	maxNumberOfSataPorts = models.IntegerField(null = False,default=0)
+	numberOfUSBPorts = models.IntegerField(null = False,default=0)
+	USBRevision = models.CharField(max_length=100)
+	busSpeed = models.FloatField(null = False,default=0.0)
+	socket = models.CharField(max_length=255)
+>>>>>>> 8635eeb8573b2b14de3ef4936e35aa66aebdf017
 	CPURelated = models.ManyToManyField(Cpu)
 	GPURelated = models.ManyToManyField(Gpu)
 	description = models.CharField(max_length=255)
