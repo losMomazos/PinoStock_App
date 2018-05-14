@@ -17,15 +17,110 @@
     <title>Aguante la Gtx</title>
   </head>
   <body>
-        <h1>{{mother.name}}</h1>
-		{% for i in mother.CPURelated.all %}
-			<h3>{{i.name}}</h3>
-		{% endfor%}
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="index.html">Inicio</a>
+  
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link" href="">Cpu<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Gpu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="">Motherboard</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
 
-		{% for j in mother.GPURelated.all%}
-			<h3>{{j.name}}</h3>
-		{%endfor%}
-        <!-- Bootstrap core JavaScript -->
+		<div class="container">
+			<div class="row">
+				<div class="col-8">
+					<h1>aqui va a ir la imagen xD</h1>
+					
+				</div>
+				<div class="col-4">
+					<h2>Details</h2>
+					<dl class="row">
+						<dt class="col-sm-3">Nombre</dt>
+  						<dd class="col-sm-9">{{mother.name}}</dd>
+
+  						<dt class="col-sm-4">MotherPatent  </dt>
+  						<dd class="col-sm-8">
+    						{{ mother.motherPatent}}
+  						</dd>
+  						<dt class="col-sm-3">Bus Speed</dt>
+  						<dd class="col-sm-9">{{mother.busSpeed}}</dd>
+
+  						<dt class="col-sm-3 text-truncate">Puertos USB</dt>
+  						<dd class="col-sm-9">{{mother.numberOfUSBPorts}}</dd>
+						
+						<dt class="col-sm-3 text-truncate">Socket</dt>
+  						<dd class="col-sm-9">{{mother.socketInMB}}</dd>
+
+						<dt class="col-sm-4 text-truncate">Pantallas</dt>
+  						<dd class="col-sm-8">{{mother.numberOfDisplaysSupported}}</dd>
+
+					</dl>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+				<h2>cpu relacionadas</h2>
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col-3">#</th>
+							<th scope="col-3">Name</th>
+							<th scope="col-3">MotherPatent</th>
+							<th scope="col-3">BusSpeed</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for i in mother.CPURelated.all %}
+							<tr>
+								<th scope="row">{{i.id}}</th>
+								<td>{{i.name}}</td>
+								<td>{{i.motherPatent}}</td>
+								<td>{{i.busSpeed}}</td>
+							</tr>
+						{% endfor%}
+					</tbody>
+				</table>
+				<h2>gpu relacionadas</h2>
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col-3">#</th>
+							<th scope="col-3">Name</th>
+							<th scope="col-3">PatentGpu</th>
+							<th scope="col-3">BaseClock</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for i in mother.GPURelated.all %}
+							<tr>
+								<th scope="row">{{i.id}}</th>
+								<td>{{i.name}}</td>
+								<td>{{i.patentGPU}}</td>
+								<td>{{i.baseClock}}</td>
+							</tr>
+						{% endfor%}
+					</tbody>
+				</table>		
+				</div>
+			</div>
+		</div>
+		<!--Bootstrap core JavaScript -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
             
