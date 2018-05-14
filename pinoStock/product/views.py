@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
 
@@ -14,3 +14,10 @@ def hello_world(request):
 	}
 	return HttpResponse(template.render(context,request))
 	#return render(request,'motherboard.html')
+def detail(request,pk):
+	mother = get_object_or_404(MotherBoard,pk=pk)
+	template = loader.get_template('detail.html')
+	context = {
+		'mother':mother
+	}
+	return HttpResponse(template.render(context,request))

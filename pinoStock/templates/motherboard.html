@@ -133,7 +133,7 @@
                         <tr>
                         <th scope="row">2</th>
                           {% for mt in motherboard%}
-                            <td>{{mt.name}}</td>
+                            <td><a href="{% url 'product:detail' mt.pk %}">{{mt.name}}</a></td>
                           {% endfor %}
                         </tr>
                       </tbody>
