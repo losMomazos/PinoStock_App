@@ -20,7 +20,7 @@ ptyprocess==0.5.2
 pycairo==1.17.0
 pycups==1.9.73
 pycurl==7.43.0.1
-Pygments==2.2.0
+Pygments==2.7.4
 pygobject==3.28.2
 pyparsing==2.2.0
 pytz==2018.4
